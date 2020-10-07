@@ -1,6 +1,7 @@
 require('./connection');
 const cors = require("cors");
 const express = require("express");
+const compression = require('compression');
 const authMiddleWare = require('./middlewares/auth.middleware');
 
 const app = express();
@@ -9,6 +10,7 @@ const userRoute = require("./resources/user/user.route");
 const productRoute = require('./resources/product/product.route');
 
 app.use(cors());
+app.use(compression());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
