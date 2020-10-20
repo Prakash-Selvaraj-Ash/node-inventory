@@ -15,7 +15,7 @@ const productService = {
         await repository.insertProduct(name, price, description);
         return true;
     },
-
+    
     getById: async function (id) {
         const product = await repository.getById(id).catch(e => {
             return Promise.reject(new Error(e.message));
@@ -26,6 +26,11 @@ const productService = {
     getProductList: async function () {
         const products = await repository.getProductList();
         return mapper(products, productProfile.products);
+    },
+
+    deleteByIds: async function(ids){
+        await repository.deleteByIds(ids);
+        return true;
     }
 }
 

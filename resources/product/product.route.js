@@ -6,5 +6,6 @@ const router = express.Router();
 router.post('/', productController.insertProduct);
 router.get('/byId/:id', productController.getProductById);
 router.get('/list', productController.getProductList);
+router.delete('/', productController.deleteByIds);
 
 module.exports = router;

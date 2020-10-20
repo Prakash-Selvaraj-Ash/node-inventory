@@ -33,6 +33,17 @@ const userController = {
                 error: err.message,
             });
         }
+    },
+
+    deleteByIds: async (req, res) => {
+        try {
+            const result = await productService.deleteByIds(req.body)
+            return res.status(httpStatusCodes.OK).json(result);
+        } catch (err) {
+            return res.status(httpStatusCodes.BAD_REQUEST).json({
+                error: err.message,
+            });
+        }
     }
 };
 

@@ -23,6 +23,12 @@ const repository = {
     getProductList: async function () {
         const products = await queryPromise('SELECT * FROM Products', []);
         return products;
+    },
+
+    deleteByIds: async function(ids){
+        const sql = "DELETE FROM Products WHERE Id in (" + ids.join(',') +")";
+        await queryPromise(sql, []);
+        return true;
     }
 }
 
